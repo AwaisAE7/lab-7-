@@ -7,27 +7,31 @@ import { Alert, Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 var index = ["","","","","","","","",""];
 
 export default function App() {
-  const [getText, setText] = useState("x")
+  const [getText, setText] = useState("X")
   const [gettry, settry]= useState(1)
   const [getturn, setturn]= useState(1)
-  
- 
+  const [getwinner, setwinner]= useState("")
+
   const buttonClick = (txt) => {
+    
 if(index[txt].length<1){ if(gettry % 2 == 0){
-  setturn(2);
-  setText("x");
+  setturn(1);
+  setText("X");
   
   index[txt]=getText;
   
-  
+
      }
      else{
-      setturn(1);
+      setturn(2);
   setText("0");
   
   index[txt]=getText;
-  
+
      }
+     check();
+    
+     
      settry(gettry+1);
     }else{
       alert("already pressed sheeda jii!!");
@@ -36,9 +40,32 @@ if(index[txt].length<1){ if(gettry % 2 == 0){
   }
   
   const check = ()=>{
+    
+if((index[0]=="X" && index[1]=="X" && index[2]=="X") || (index[0]=="X" && index[3]=="X" && index[6]=="X") || (index[0]=="X" && index[4]=="X" && index[8]=="X" ) || (index[1]=="X" && index[4]=="X" && index[7]=="X" ) || (index[2]=="X" && index[5]=="X" && index[8]=="X" ) || (index[3]=="X" && index[4]=="X" && index[5]=="X" ) ||(index[6]=="X" && index[7]=="X" && index[8]=="X" ) || (index[2]=="X" && index[4]=="X" && index[6]=="X" )){
+setwinner("ALI BHAI won congrats!!!");
+}
+else if((index[0]=="0" && index[1]=="0" && index[2]=="0") || (index[0]=="0" && index[3]=="0" && index[6]=="0") || (index[0]=="0" && index[4]=="0" && index[8]=="0" ) || (index[1]=="0" && index[4]=="0" && index[7]=="0" ) || (index[2]=="0" && index[5]=="0" && index[8]=="0" ) || (index[3]=="0" && index[4]=="X" && index[5]=="0" ) ||(index[6]=="0" && index[7]=="0" && index[8]=="0" ) || (index[2]=="0" && index[4]=="0" && index[6]=="0" )){
+  setwinner("OMER BHAI won congrats!!!");
+}
 
+else{
+  for (let i = 0; i < index.length; i++) {
+    if (index[i].length < 1) {
+      setwinner("");
+    }else{
+      setwinner("DRAW");
+    }
+ 
+  
+}
 
+  
+  
+}
+   
   }
+
+
   return (
     <View style={styles.container}>
 <View style={styles.play}>
@@ -49,11 +76,12 @@ if(index[txt].length<1){ if(gettry % 2 == 0){
     
         
       </View>
-      <View><Text>TURN:PLAYER {getturn}</Text></View>
+      <View><Text style={{ fontSize: 20}}>TURN:<Text style={{ fontSize: 20, fontWeight: 'bold', margin:20}}>PLAYER {getturn}</Text></Text></View>
       
       <View >
         <Text  style={{ fontSize: 20, fontWeight: 'bold', margin:20}}>TIC TAC TOE WALI GAME</Text>
         <Text >----------------------------------------------------</Text>
+        <Text  style={{ fontSize: 20, fontWeight: 'bold', margin:20,color: 'red', justifyContent: 'center', alignItems: 'center' }}>{getwinner}</Text>
       </View>
       <View>
         <View style={styles.R1}>
@@ -124,7 +152,7 @@ const styles = StyleSheet.create({
   },
   R1: {
     flexDirection: 'row',
-  },
+  }
  
   
 });
