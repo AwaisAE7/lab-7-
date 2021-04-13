@@ -5,52 +5,57 @@ import { Alert, Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-
-      <View style={{marginBottom: 100}}>
-        <header style={{ fontSize: 30, fontWeight: 'bold' }}>Tic Tac Toe</header>
+<View style={styles.play}>
+        <Text style={{ fontSize: 20, marginRight: 25}}>
+          <Text  style={{marginRight: 25}}>ALI BHAI: X</Text>
+          <Text>OMER BHAI: O</Text>
+        </Text>
+     
+        
+      </View>
+      <View >
+        <Text  style={{ fontSize: 20, fontWeight: 'bold', margin:20}}>TIC TAC TOE WALI GAME</Text>
+        <Text >----------------------------------------------------</Text>
       </View>
       <View>
-        <View style={styles.row}>
+        <View style={styles.R1}>
           <Pressable style={styles.buttons} onPress={""}>
-            <Text style={{ fontSize: 30, color: 'white' }}>X</Text>
+            X
           </Pressable>
           <Pressable style={styles.buttons} onPress={""}>
-            <Text style={{ fontSize: 30, color: 'white' }}>O</Text>
+          0
           </Pressable>
           <Pressable style={styles.buttons} onPress={""}>
-            <Text style={{ fontSize: 30, color: 'white' }}>X</Text>
-          </Pressable>
-        </View>
-
-        <View style={styles.row}>
-          <Pressable style={styles.buttons} onPress={""}>
-            <Text style={{ fontSize: 30, color: 'white' }}>O</Text>
-          </Pressable>
-          <Pressable style={styles.buttons} onPress={""}>
-            <Text style={{ fontSize: 30, color: 'white' }}>X</Text>
-          </Pressable>
-          <Pressable style={styles.buttons} onPress={""}>
-            <Text style={{ fontSize: 30, color: 'white' }}>O</Text>
+          X
           </Pressable>
         </View>
 
-        <View style={styles.row}>
+        <View style={styles.R1}>
           <Pressable style={styles.buttons} onPress={""}>
-            <Text style={{ fontSize: 30, color: 'white' }}>X</Text>
+          0
           </Pressable>
           <Pressable style={styles.buttons} onPress={""}>
-            <Text style={{ fontSize: 30, color: 'white' }}>O</Text>
+          0
           </Pressable>
           <Pressable style={styles.buttons} onPress={""}>
-            <Text style={{ fontSize: 30, color: 'white' }}>X</Text>
+          X
+          </Pressable>
+        </View>
+
+        <View style={styles.R1}>
+          <Pressable style={styles.buttons} onPress={""}>
+          0
+          </Pressable>
+          <Pressable style={styles.buttons} onPress={""}>
+          X
+          </Pressable>
+          <Pressable style={styles.buttons} onPress={""}>
+          0
           </Pressable>
         </View>
       </View>
 
-      <View style={styles.player}>
-        <Text style={{ fontSize: 30, marginRight: 30}}>Player1: <Text style={{ fontSize: 30, fontWeight: 'bold' }}>X</Text></Text>
-        <Text style={{ fontSize: 30, marginLeft: 30}}>Player2: <Text style={{ fontSize: 30, fontWeight: 'bold' }}>O</Text></Text>
-      </View>
+      
       <StatusBar style="auto" />
     </View>
   );
@@ -59,22 +64,29 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
-  row: {
-    flexDirection: 'row',
+   
   },
   buttons: {
-    height: 60,
-    width: 60,
-    margin: 2,
-    backgroundColor: 'black',
+    fontSize: 35,
+     color: 'white',
+    height: 50,
+    width: 50,
+    margin: 1,
+    backgroundColor: 'blue',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  player:{
+  play:{
+    
+    margin: 55,
     flexDirection: 'row',
-  }
+  },
+  R1: {
+    flexDirection: 'row',
+  },
+ 
+  
 });
